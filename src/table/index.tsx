@@ -39,7 +39,6 @@ const Table = () => {
   };
 
   const getProductsFromApi = React.useCallback(async () => {
-    console.log("sortBy", JSON.stringify(sortBy));
     setIsLoading(true);
     const url = `https://dummyjson.com/products?limit=100&${parseSorting(
       sortBy
@@ -54,7 +53,6 @@ const Table = () => {
       setData([...json.products]);
       setIsLoading(false);
     } catch (error: any) {
-      // console.error(error?.message);
       setIsLoading(false);
     }
   }, [sortBy]);
